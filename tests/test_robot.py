@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from robot import Robot
 from mars_grid import MarsGrid
+from command_processor import CommandProcessor
 
 
 class TestRobot(unittest.TestCase):
@@ -130,6 +131,63 @@ class TestRobot(unittest.TestCase):
         robot = Robot(3, 2, 'W', self.grid)
         position = robot.get_position()
         self.assertEqual(position, (3, 2, 'W'))
+    
+    def test_sample_input_output(self):
+        """Test complete sample input produces expected output
+        
+        Sample Input:
+        5 3
+        1 1 E
+        RFRFRFRF
+        3 2 N
+        FRRFLLFFRRFLL
+        0 3 W
+        LLFFFLFLFL
+        
+        Expected Output:
+        1 1 E
+        3 3 N LOST
+        2 3 S
+        """
+        # Create grid matching sample input (5 3)
+        grid = MarsGrid(5, 3)
+        command_processor = CommandProcessor()
+        results = []
+        
+        # Robot 1: Position (1, 1, E), Instructions: RFRFRFRF
+        robot1 = Robot(1, 1, 'E', grid)
+        command_processor.execute_commands(robot1, "RFRFRFRF")
+        results.append(str(robot1))
+        
+        # Robot 2: Position (3, 2, N), Instructions: FRRFLLFFRRFLL
+        robot2 = Robot(3, 2, 'N', grid)
+        command_processor.execute_commands(robot2, "FRRFLLFFRRFLL")
+        results.append(str(robot2))
+        
+        # Robot 3: Position (0, 3, W), Instructions: LLFFFLFLFL
+        robot3 = Robot(0, 3, 'W', grid)
+        command_processor.execute_commands(robot3, "LLFFFLFLFL")
+        results.append(str(robot3))
+        
+        # Verify expected output
+        expected_output = ["1 1 E", "3 3 N LOST", "2 3 S"]
+        self.assertEqual(results, expected_output)
+        
+        # Additional verification of individual robot states
+        self.assertEqual(robot1.x, 1)
+        self.assertEqual(robot1.y, 1)
+        self.assertEqual(robot1.orientation, 'E')
+        self.assertFalse(robot1.is_lost)
+        
+        self.assertEqual(robot2.x, 3)
+        self.assertEqual(robot2.y, 3)
+        self.assertEqual(robot2.orientation, 'N')
+        self.assertTrue(robot2.is_lost)
+        
+        self.assertEqual(robot3.x, 2)
+        self.assertEqual(robot3.y, 3)
+        self.assertEqual(robot3.orientation, 'S')
+        self.assertFalse(robot3.is_lost)
 
 
 if __name__ == '__main__':
