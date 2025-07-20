@@ -42,7 +42,7 @@ martian-robot-challenge
 ## How to Run the Program
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/grb-bs-go/martian-robot-challenge.git
    cd martian-robot-challenge
    ```
 
@@ -57,6 +57,7 @@ martian-robot-challenge
    ```
 
 ## Input Format
+```
 Input Commands consists of multiple lines of input, pressing Enter once to send each command:
 1. First, input the dimensions of the rectangular grid (represending the martian surface).
 2. Then input two lines for robot, the first line providing its starting position, and the second line its movement instructions.
@@ -74,6 +75,7 @@ Next robot instructions, example: FRRFLLFFRRFLL
 And so on...
 Ending Input Sequence
 To end the command input sequence, use CTL+D (Linux/Mac) or CTL+Z (Win)
+```
 
 ### Example Input
 ```
