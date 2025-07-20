@@ -64,7 +64,7 @@ Input Commands consists of multiple lines of input, pressing Enter once to send 
 3. Signal end of input
 
 When you run python3 src/main.py, the program will prompt you to enter input. You would enter:
-
+```
 Grid dimensions (first line), example: 5 3
 Robot data (pairs of lines):
 Robot position and orientation, example: 1 1 E
@@ -74,7 +74,7 @@ Next robot instructions, example: FRRFLLFFRRFLL
 And so on...
 Ending Input Sequence
 To end the command input sequence, use CTL+D (Linux/Mac) or CTL+Z (Win)
-
+```
 ### Example Input
 ```
 5 3
