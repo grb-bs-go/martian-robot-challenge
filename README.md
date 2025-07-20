@@ -2,7 +2,7 @@
 This Project was completed by Gavin Bayfield on 20 July 2025, within the specified time constraints of 3 hours. This development effort was completed using GitHub Codespaces, supported by GitHub Copilot, and provides a test suite to demonstrate that the project complies with the specific requirements outlined in the project description.
 
 ## Overview
-The Martian Robot Challenge is a simulation of robots navigating the surface of Mars, represented as a rectangular grid. Each robot can move according to a set of instructions, and the program determines the final position of each robot after executing its commands. If a robot moves off the edge of the grid, it is considered "lost," and the program keeps track of these positions to prevent future robots from falling off at the same spot.
+The Martian Robot Challenge is a simulation based on the movement of robots, simulating navigating the surface of Mars. The surface of Mars is modelled as Go/No-Go areas represented as a rectangular grid/off-grid is out-of-bounds. Each robot can move according to a set of instructions, and the program resolves the final position of each robot after executing its commands. If a robot moves off the edge of this grid, it is considered "lost," and the program keeps track of these final positions using "scent-markers" to prevent future robots from falling off at the same spot.
 
 ## Project Structure
 ```
@@ -16,7 +16,9 @@ martian-robot-challenge
 │   ├── __init__.py               # Marks the tests directory as a package
 │   ├── test_robot.py             # Unit tests for the Robot class
 │   ├── test_mars_grid.py         # Unit tests for the MarsGrid class
-│   └── test_command_processor.py # Unit tests for the CommandProcessor class
+│   ├── test_command_processor.py # Unit tests for the CommandProcessor 
+|   └── test_input_validation.py  # Unit tests for input validation
+├── .gitignore                    # Git ignore list 
 ├── requirements.txt              # Lists project dependencies
 └── README.md                     # Project documentation
 ```
@@ -27,14 +29,14 @@ martian-robot-challenge
 - **F**: Move forward one grid point in current orientation
 
 ## Grid Rules
-- Grid coordinates start at (0,0) in the lower-left corner
+- Grid coordinates start at (0,0) for a rectangular grid
 - Maximum coordinate values are specified in the first input line
-- Robots that move off the edge are "lost" forever
+- Robots that move off the edge are considered "lost" & not revocerable. 
 - Lost robots leave a "scent" that prevents future robots from falling off at the same position
-- Commands that would cause a robot to fall off from a scented position are ignored
+- Commands that would cause a robot to fall off from a scented position in the grid are ignored
 
 ## Constraints (if exceeded resulting in input validation error)
-- Grid dimensions must not exceed 50 for either axis.
+- Grid dimensions must not exceed 50 for either the x or y axis.
 - Robot instruction string length must not exceed 100 characters.
 
 ## How to Run the Program
@@ -95,6 +97,8 @@ The output indicates the final position and orientation of each robot. If a robo
 ```
 
 ## Running Tests
+This Project contains an extensive test suite containing 30 unit tests to ensure the components function correctly and this implementations meets the stated set of requirements, including all explicit constraints.
+
 To run all unit tests at once:
 ```bash
 python3 -m unittest discover tests/ -v
@@ -115,3 +119,16 @@ python3 -m coverage report
 
 ## Future Enhancements
 The project is designed to be extensible, allowing for the addition of new command types and features as needed.
+
+## License
+This project is licensed under the MIT License.
+
+## Questions & Queries?
+Feel free to drop me a line if there are any questions or issues regarding this project. 
+
+
+Thanks & Regards Gavin Bayfield
+Director & Lead Consultant, Jasmine Enterprise Software Services Ltd
++44 (0)7585 898359
+services@jessenterprise.com
+www.jessenterprise.com

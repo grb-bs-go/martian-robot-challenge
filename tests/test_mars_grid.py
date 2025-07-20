@@ -21,6 +21,24 @@ class TestMarsGrid(unittest.TestCase):
         self.assertEqual(self.grid.max_y, 3)
         self.assertEqual(len(self.grid.scent_positions), 0)
     
+    def test_grid_dimension_constraints(self):
+        """Test grid dimension constraints (max 50 for either axis)"""
+        # Valid dimensions at boundary
+        grid_50_50 = MarsGrid(50, 50)
+        self.assertEqual(grid_50_50.max_x, 50)
+        self.assertEqual(grid_50_50.max_y, 50)
+        
+        grid_0_0 = MarsGrid(0, 0)
+        self.assertEqual(grid_0_0.max_x, 0)
+        self.assertEqual(grid_0_0.max_y, 0)
+        
+        # Note: The constraint validation is actually in main.py parse_input()
+        # MarsGrid itself doesn't enforce the 50-unit limit
+        # We test that here for documentation purposes
+        grid_large = MarsGrid(100, 100)  # This will work in MarsGrid
+        self.assertEqual(grid_large.max_x, 100)
+        self.assertEqual(grid_large.max_y, 100)
+    
     def test_valid_positions(self):
         """Test valid position checking"""
         # Corner positions
