@@ -129,6 +129,5 @@ Feel free to drop me a line if there are any questions or issues regarding this 
 
 Thanks & Regards Gavin Bayfield
 Director & Lead Consultant, Jasmine Enterprise Software Services Ltd
-+44 (0)7585 898359
 services@jessenterprise.com
 www.jessenterprise.com
