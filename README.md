@@ -1,3 +1,5 @@
+[![Example Custom Env Vars](https://github.com/grb-bs-go/martian-robot-challenge/actions/workflows/test-custom-vars.yml/badge.svg)](https://github.com/grb-bs-go/martian-robot-challenge/actions/workflows/test-custom-vars.yml)
+
 ## Martian Robot Challenge
 This Project was completed by Gavin Bayfield on 20 July 2025, within the specified time constraints of 3 hours. This development effort was completed using GitHub Codespaces, supported by GitHub Copilot, and provides a test suite to demonstrate that the project complies with the specific requirements outlined in the project description.
 
