@@ -1,17 +1,19 @@
 name: Example Custom Env Vars
 
-on: 
+on:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Step with custom environment variables
         env:
-          MY_VAR: "hello world"
-          API_KEY: ${{ secrets.API_KEY }}
+          MY_VAR: "hello"
+          Name: ${{ env.name }}
         run: |
-          echo "MY_VAR is $MY_VAR"
-          echo "API_KEY is $API_KEY"
+          echo "MY_VAR key is $MY_VAR"
+          echo "Name is $Name"
