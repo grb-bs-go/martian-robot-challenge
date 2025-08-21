@@ -15,4 +15,4 @@ jobs:
           MY_GREETING: "Hello there"
           FIRST_NAME: ${{ env.NAME }} 
         run: |
-          echo "A common greeting is $MY_GREETING, $FIRST_NAME !"
+          echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
