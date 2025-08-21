@@ -2,7 +2,7 @@ name: Example Custom Env Vars
 on:
   workflow_dispatch:
 env:
-  NAME: "Fred"
+  MY_NAME: "Fred"
 jobs:
   build:
     runs-on: ubuntu-latest
