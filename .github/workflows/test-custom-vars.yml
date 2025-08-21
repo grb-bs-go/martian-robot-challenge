@@ -3,7 +3,7 @@ name: Example Custom Env Vars
 on:
   workflow_dispatch:
 env:
-  MY_NAME: "Hello there" 
+  MY_NAME: "Hello there"
 jobs:
   build:
     runs-on: ubuntu-latest
