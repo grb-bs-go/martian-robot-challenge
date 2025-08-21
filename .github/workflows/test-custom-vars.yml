@@ -9,10 +9,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Step with custom environment variable
+    - name: Step with custom environment variables  
       env:
         MY_GREETING: "Hello there"
-        FIRST_NAME: ${ env.NAME }
+        FIRST_NAME: ${{ env.FIRST_NAME }}
       run: |
         if [ -z "$FIRST_NAME" ]; then
           exit 1
