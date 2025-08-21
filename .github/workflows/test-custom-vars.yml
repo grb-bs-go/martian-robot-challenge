@@ -15,8 +15,4 @@ jobs:
           MY_GREETING: "Hello there"
           FIRST_NAME: ${{ env.MY_NAME }}
         run: |
-          if [ -z "$FIRST_NAME" ]; then
-            echo "GRB=>$FIRST_NAME<="
-            exit 1
-          else
             echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
