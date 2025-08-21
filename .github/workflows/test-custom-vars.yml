@@ -1,18 +1,20 @@
 name: Example Custom Env Vars
 on:
-  workflow_dispatch:
+  workflow_dispatch:
 env:
-  MY_NAME: "Hello there"
+  MY_NAME: "Fred"
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Step with custom environment variables
-        env:
-          MY_GREETING: "Hello there"
-          FIRST_NAME env.NAME
-        run: |
-          echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Step with custom environment variable
+      env:
+        MY_GREETING: "Hello there"
+        FIRST_NAME: ${ env.NAME }
+      run: |
+        if [ -z "$FIRST_NAME" ]; then
+          exit 1
+        else
+          echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
