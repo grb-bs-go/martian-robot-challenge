@@ -2,7 +2,7 @@ name: Example Custom Env Vars
 on:
   workflow_dispatch:
 env:
-  MY_NAME: "Fred"
+  MY_NAME: "Hello there"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,6 +13,6 @@ jobs:
       - name: Step with custom environment variables
         env:
           MY_GREETING: "Hello there"
-          FIRST_NAME: ${{ env.NAME }}
+          FIRST_NAME: ${ env.NAME }
         run: |
           echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
