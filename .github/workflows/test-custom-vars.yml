@@ -13,6 +13,6 @@ jobs:
       - name: Step with custom environment variables
         env:
           MY_GREETING: "Hello there"
-          FIRST_NAME: ${{ env.MY_NAME }}
+          FIRST_NAME: ${{ env.FIRST_NAME }}
         run: |
             echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
