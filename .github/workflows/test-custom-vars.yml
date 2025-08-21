@@ -15,4 +15,7 @@ jobs:
           MY_GREETING: "Hello there"
           FIRST_NAME: ${{ env.FIRST_NAME }}
         run: |
-            echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
+          if [ -z "$FIRST_NAME" ]; then
+            exit 1
+          fi
+          echo "A common greeting is '$MY_GREETING, $FIRST_NAME !'"
